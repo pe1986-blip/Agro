@@ -1,0 +1,5 @@
+{
+  "name": "Plataforma de Inteligência de Mercado Educacional",
+  "description": "Uma plataforma inteligente para análise do mercado educacional brasileiro, integrando dados georreferenciados, dashboards interativos e uma interface de chat com IA para análises competitivas detalhadas do ensino superior.",
+  "requestFramePermissions": []
+}
