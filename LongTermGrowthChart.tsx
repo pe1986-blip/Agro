@@ -88,7 +88,7 @@ const LongTermGrowthChart: React.FC<LongTermGrowthChartProps> = ({ data, alpha }
                     <p className="text-xs font-bold text-slate-700">Interpretação Alpha</p>
                     <p className="text-[10px] text-slate-500 leading-relaxed">
                         A curva verde indica onde a demanda por qualificação descola do PIB local. 
-                        Cidades com <span className="font-bold text-slate-700">Alpha > 1.3</span> são ativos de alto crescimento para tese de consolidação educacional.
+                        Cidades com <span className="font-bold text-slate-700">Alpha &gt; 1.3</span> são ativos de alto crescimento para tese de consolidação educacional.
                     </p>
                 </div>
             </div>

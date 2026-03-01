@@ -4,8 +4,7 @@ import {
   Factory, Sprout, Truck, MapPin, Target, 
   Briefcase, GraduationCap, AlertTriangle, 
   Database, Users, Globe, ChevronDown, ChevronUp,
-  Cpu, Droplets, Zap, Building2, Anchor, Coffee, BarChart3, FileText,
-  ScatterChart, Scatter, XAxis, YAxis, ZAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, Label
+  Cpu, Droplets, Zap, Building2, Anchor, Coffee, BarChart3, FileText
 } from 'lucide-react';
 // Correct Recharts import for ScatterChart
 import { 

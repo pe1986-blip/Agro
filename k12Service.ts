@@ -1,5 +1,5 @@
 
-import { MunicipioPerfil } from "../types";
+import { MunicipioPerfil } from "./types";
 
 // --- BANCO DE DADOS DE ESCOLAS REAIS (MOCK INTELIGENTE) ---
 // Dados baseados em scraping público de mensalidades e rankings do ENEM recentes.

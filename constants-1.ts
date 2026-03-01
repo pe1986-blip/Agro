@@ -1,6 +1,6 @@
 import { MunicipioPerfil, MarketTier } from './types';
 
-export const formatNumber = (num: number, style = 'decimal', currency = 'BRL') => 
+export const formatNumber = (num: number, style: 'decimal' | 'currency' | 'percent' | 'unit' = 'decimal', currency = 'BRL') => 
     new Intl.NumberFormat('pt-BR', { 
         style: style, 
         currency: currency, 

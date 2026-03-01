@@ -187,7 +187,7 @@ const ImpactEngine = () => (
             <div className="mt-8 bg-white/10 p-4 rounded-xl border border-white/10 flex items-start gap-3">
                 <Zap size={16} className="text-yellow-400 mt-1 shrink-0"/>
                 <p className="text-xs text-slate-300 italic">
-                    "Exemplo Prático: Produtor faz bootcamp de agricultura de precisão -> passa a usar visibilidade de solo -> reduz defensivos em 23% -> economiza R$ 15k/safra. Impacto atribuído à educação."
+                    "Exemplo Prático: Produtor faz bootcamp de agricultura de precisão → passa a usar visibilidade de solo → reduz defensivos em 23% → economiza R$ 15k/safra. Impacto atribuído à educação."
                 </p>
             </div>
         </div>

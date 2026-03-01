@@ -6,7 +6,7 @@ import {
   Download, Table, Layers, ArrowRight, Network, FileSpreadsheet, Search,
   Cpu, HardDrive, ShieldCheck, Zap, GraduationCap, Microscope, Layout, DollarSign, Monitor,
   Activity, Lock, Key, RefreshCw, CloudLightning,
-  Users2, BookOpen
+  Users2, BookOpen, Code
 } from 'lucide-react';
 
 // --- SHARED COMPONENTS ---
@@ -314,12 +314,49 @@ const DataInventory = () => {
                 </div>
             </div>
 
+            {/* SEÇÃO 4: SCRIPT DE CONSOLIDAÇÃO (NOVO) */}
+            <div className="bg-indigo-900 text-white rounded-3xl p-8 shadow-xl border border-indigo-700 relative overflow-hidden">
+                <div className="absolute top-0 right-0 p-12 opacity-10 pointer-events-none rotate-12"><Code size={120}/></div>
+                <div className="relative z-10">
+                    <div className="flex items-center gap-3 mb-4">
+                        <div className="p-2 bg-indigo-500 rounded-lg"><Download size={20}/></div>
+                        <h3 className="text-lg font-black uppercase tracking-tight">Script de Consolidação de Código</h3>
+                    </div>
+                    <p className="text-sm text-indigo-200 mb-6 max-w-2xl">
+                        Este script automatiza a exportação de todo o ecossistema RogerLens. Ele percorre a árvore de diretórios, 
+                        agrupa os arquivos <code className="bg-indigo-800 px-1 rounded">.tsx</code>, <code className="bg-indigo-800 px-1 rounded">.ts</code> e <code className="bg-indigo-800 px-1 rounded">.css</code>, 
+                        e gera um arquivo mestre para backup ou deploy em novos ambientes.
+                    </p>
+                    
+                    <div className="bg-black/40 rounded-xl p-4 border border-white/10 font-mono text-[10px] text-indigo-300 mb-6">
+                        <p className="mb-2"># RogerLens Consolidation Script v1.2</p>
+                        <p className="text-emerald-400">import os, glob</p>
+                        <p>def consolidate_project(root_dir):</p>
+                        <p className="pl-4">files_to_scan = ["src/**/*.tsx", "src/**/*.ts", "*.tsx", "*.ts", "*.css"]</p>
+                        <p className="pl-4">with open("rogerlens_consolidated.txt", "w") as out:</p>
+                        <p className="pl-8">for pattern in files_to_scan:</p>
+                        <p className="pl-12">for fpath in glob.glob(pattern, recursive=True):</p>
+                        <p className="pl-16">out.write(f"\n\n--- FILE: {"{fpath}"} ---\n")</p>
+                        <p className="pl-16">out.write(open(fpath).read())</p>
+                    </div>
+
+                    <div className="flex gap-4">
+                        <button className="bg-white text-indigo-900 px-6 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-indigo-50 transition-all flex items-center gap-2">
+                            <Zap size={14}/> Executar Consolidação
+                        </button>
+                        <button className="bg-indigo-800 text-white px-6 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-indigo-700 transition-all border border-indigo-600">
+                            Copiar Script Python
+                        </button>
+                    </div>
+                </div>
+            </div>
+
         </div>
     );
 };
 
 export default function ArchitectureDiagram() {
-  const [activeTab, setActiveTab] = useState<'diagram' | 'inventory'>('diagram');
+  const [activeTab, setActiveTab] = useState<'diagram' | 'inventory' | 'consolidation'>('diagram');
   return (
     <div className="p-6 bg-gray-50 h-full overflow-y-auto animate-fade-in flex flex-col">
         <div className="flex justify-center mb-8 sticky top-0 z-20 py-2 bg-gray-50/90 backdrop-blur">
@@ -330,11 +367,118 @@ export default function ArchitectureDiagram() {
                 <button onClick={() => setActiveTab('inventory')} className={`flex items-center gap-2 px-6 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all ${activeTab === 'inventory' ? 'bg-blue-600 text-white shadow-md' : 'text-slate-500 hover:text-slate-800 hover:bg-slate-50'}`}>
                     <FileSpreadsheet size={16} /> Catálogo de Dados
                 </button>
+                <button onClick={() => setActiveTab('consolidation')} className={`flex items-center gap-2 px-6 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all ${activeTab === 'consolidation' ? 'bg-indigo-600 text-white shadow-md' : 'text-slate-500 hover:text-slate-800 hover:bg-slate-50'}`}>
+                    <Code size={16} /> Consolidação
+                </button>
             </div>
         </div>
         <div className="flex-1">
-            {activeTab === 'diagram' ? <TechnicalDiagram /> : <DataInventory />}
+            {activeTab === 'diagram' && <TechnicalDiagram />}
+            {activeTab === 'inventory' && <DataInventory />}
+            {activeTab === 'consolidation' && <CodeConsolidationView />}
         </div>
     </div>
   );
 }
+
+const CodeConsolidationView = () => {
+    const [isGenerating, setIsGenerating] = useState(false);
+    const [result, setResult] = useState<string | null>(null);
+
+    const generateConsolidation = async () => {
+        setIsGenerating(true);
+        // Simulação de consolidação para o UI
+        setTimeout(() => {
+            setResult(`// RogerLens V4.5 - Consolidated Source Code
+// Generated: ${new Date().toLocaleString()}
+
+// --- FILE: App.tsx ---
+import React from 'react';
+// ... [Full Content of App.tsx]
+
+// --- FILE: architecture.tsx ---
+import React from 'react';
+// ... [Full Content of architecture.tsx]
+
+// --- FILE: types.ts ---
+export interface MunicipioPerfil { ... }
+
+// [Note: In a real environment, this would be generated by a build script or server-side tool]`);
+            setIsGenerating(false);
+        }, 1200);
+    };
+
+    return (
+        <div className="animate-fade-in max-w-6xl mx-auto space-y-8 pb-10">
+            <div className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm">
+                <div className="flex items-center gap-4 mb-6">
+                    <div className="p-3 bg-indigo-100 rounded-2xl text-indigo-600">
+                        <Code size={24} />
+                    </div>
+                    <div>
+                        <h3 className="text-lg font-black text-slate-800 uppercase tracking-tight">Consolidador de Código RogerLens</h3>
+                        <p className="text-sm text-slate-500">Agrupa todos os arquivos do projeto em um único bloco de texto para backup ou análise externa.</p>
+                    </div>
+                </div>
+
+                {!result ? (
+                    <div className="bg-slate-50 border border-dashed border-slate-300 rounded-2xl p-12 text-center">
+                        <p className="text-slate-500 mb-6 text-sm">Clique no botão abaixo para iniciar a varredura do diretório e consolidar os arquivos do projeto.</p>
+                        <button 
+                            onClick={generateConsolidation}
+                            disabled={isGenerating}
+                            className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-xl font-bold text-sm transition-all flex items-center gap-2 mx-auto shadow-lg shadow-indigo-200 disabled:opacity-50"
+                        >
+                            {isGenerating ? <RefreshCw className="animate-spin" size={18} /> : <Zap size={18} />}
+                            {isGenerating ? "Consolidando..." : "Gerar Consolidação Completa"}
+                        </button>
+                    </div>
+                ) : (
+                    <div className="space-y-4">
+                        <div className="flex justify-between items-center">
+                            <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">Resultado da Consolidação</span>
+                            <div className="flex gap-4">
+                                <button 
+                                    onClick={() => {
+                                        navigator.clipboard.writeText(result);
+                                        alert("Copiado para a área de transferência!");
+                                    }}
+                                    className="text-indigo-600 hover:text-indigo-800 text-xs font-bold flex items-center gap-1"
+                                >
+                                    <Share2 size={14} /> Copiar Tudo
+                                </button>
+                                <button 
+                                    onClick={() => setResult(null)}
+                                    className="text-slate-400 hover:text-slate-600 text-xs font-bold"
+                                >
+                                    Limpar
+                                </button>
+                            </div>
+                        </div>
+                        <pre className="bg-slate-900 text-slate-300 p-6 rounded-2xl text-[10px] font-mono overflow-auto max-h-[500px] border border-slate-800 custom-scrollbar">
+                            {result}
+                        </pre>
+                    </div>
+                )}
+            </div>
+            
+            <div className="bg-slate-900 text-white p-8 rounded-3xl shadow-xl border border-slate-700">
+                <h4 className="text-xs font-black text-emerald-400 uppercase tracking-widest mb-4">Por que consolidar?</h4>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="space-y-2">
+                        <p className="text-xs font-bold">Backup Portátil</p>
+                        <p className="text-[10px] text-slate-400">Tenha todo o código em um único arquivo de texto para transferências rápidas.</p>
+                    </div>
+                    <div className="space-y-2">
+                        <p className="text-xs font-bold">Análise de IA</p>
+                        <p className="text-[10px] text-slate-400">Facilite o upload do contexto completo do projeto para LLMs externas.</p>
+                    </div>
+                    <div className="space-y-2">
+                        <p className="text-xs font-bold">Auditoria de Segurança</p>
+                        <p className="text-[10px] text-slate-400">Revise todo o código-fonte em uma única visão linear.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};

@@ -37,7 +37,7 @@ const CreditMatrixWidget = ({ city }: { city: MunicipioPerfil }) => {
                     <div className="absolute right-0 top-6 w-64 bg-slate-800 text-white text-[10px] p-3 rounded-lg shadow-xl opacity-0 group-hover/info:opacity-100 transition-opacity pointer-events-none z-[100]">
                         <p className="font-bold mb-1 text-emerald-400">Fonte: Banco Central (SICOR)</p>
                         <p className="leading-relaxed">
-                            Cidades com alta taxa de <strong>Investimento</strong> (>30%) estão comprando tecnologia e máquinas. É o melhor sinal de solvência e modernização. Custeio alto indica dependência de capital de giro.
+                            Cidades com alta taxa de <strong>Investimento</strong> (&gt;30%) estão comprando tecnologia e máquinas. É o melhor sinal de solvência e modernização. Custeio alto indica dependência de capital de giro.
                         </p>
                     </div>
                 </div>
@@ -96,7 +96,7 @@ const WealthMapWidget = ({ city }: { city: MunicipioPerfil }) => {
                     <div className="absolute right-0 top-6 w-64 bg-slate-800 text-white text-[10px] p-3 rounded-lg shadow-xl opacity-0 group-hover/info:opacity-100 transition-opacity pointer-events-none z-[100]">
                         <p className="font-bold mb-1 text-yellow-400">Fonte: Receita Federal (VTN) + CAR</p>
                         <p className="leading-relaxed">
-                            Mede o "PIB Patrimonial". Cidades com VTN alto (> R$ 30k/ha) têm famílias milionárias em ativos, mesmo que a renda mensal (Caged) pareça baixa. Alvo ideal para cursos de <strong>Gestão de Patrimônio</strong>.
+                            Mede o "PIB Patrimonial". Cidades com VTN alto (&gt; R$ 30k/ha) têm famílias milionárias em ativos, mesmo que a renda mensal (Caged) pareça baixa. Alvo ideal para cursos de <strong>Gestão de Patrimônio</strong>.
                         </p>
                     </div>
                 </div>

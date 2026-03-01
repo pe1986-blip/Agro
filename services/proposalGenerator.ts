@@ -154,7 +154,7 @@ export const generateThesisPDF = async (city: MunicipioPerfil, thesis: AcademicT
     
     modules.forEach((mod, index) => {
         doc.setFont("helvetica", "normal");
-        doc.setFillColor(index % 2 === 0 ? 255 : 250); // Zebra striping bem sutil
+        doc.setFillColor(index % 2 === 0 ? "#ffffff" : "#fafafa"); // Zebra striping bem sutil
         doc.rect(margin, y - 5, 170, 8, "F");
         
         doc.text(mod, margin + 2, y);
